@@ -3,21 +3,37 @@
    ========================================================================== */
 
 :root {
-  --sand: #FBF5E9;
-  --sand-deep: #F1E3C6;
-  --sea-deep: #0E3B3F;
-  --footer-dark: #0A2628;
-  --sun: #FF7A33;
-  --sun-dark: #E35E1B;
-  --gold: #FFC247;
-  --ink: #142C2E;
-  --ink-soft: #4B6361;
-  --ink-faint: #7C9290;
-  --on-dark: #F6F1E4;
-  --on-dark-soft: rgba(246, 241, 228, 0.72);
-  --card: #FFFFFF;
-  --border: rgba(20, 44, 46, 0.10);
-  --shadow: 0 24px 48px -28px rgba(14, 59, 63, 0.35);
+  /* Paleta Dark Premium - Baseada na Mikasa Oficial */
+  --mikasa-black: #0B0C10;        /* Fundo principal do site (Ultra Dark) */
+  --mikasa-gray-dark: #1F2128;    /* Fundo dos Cards e seções secundárias (Substitui o sand-deep) */
+  --mikasa-yellow: #F4C430;       /* Amarelo equilibrado (tom ouro/açafrão), sem estourar */
+  --mikasa-yellow-dark: #C69E23;  /* Tom para o efeito de hover */
+  --mikasa-white: #FFFFFF;        /* Texto principal */
+  --text-muted: #9598A1;          /* Texto secundário/parágrafos */
+  
+  /* Mapeamento e Adaptação das superfícies antigas para a interface Dark */
+  --sand: var(--mikasa-black);
+  --sand-deep: var(--mikasa-gray-dark);
+  --sea-deep: #050507;            /* Um preto ainda mais profundo para o Hero e Footer */
+  --footer-dark: #050507;
+  
+  --sun: var(--mikasa-yellow);
+  --sun-dark: var(--mikasa-yellow-dark);
+  --gold: var(--mikasa-yellow);
+  
+  /* Ajuste de contraste para textos e elementos */
+  --ink: var(--mikasa-white);
+  --ink-soft: var(--text-muted);
+  --ink-faint: #62656E;
+  --on-dark: var(--mikasa-white);
+  --on-dark-soft: var(--text-muted);
+  
+  /* Cards e Linhas estruturais */
+  --card: #15171C;                /* Fundo dos cards de preço e depoimentos */
+  --border: rgba(244, 196, 48, 0.15); /* Bordas finas no tom amarelo sutil */
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  
+  /* Tipografia mantida */
   --font-display: 'Anton', sans-serif;
   --font-body: 'Manrope', sans-serif;
   --font-mono: 'Space Mono', monospace;
@@ -390,6 +406,7 @@ header.scrolled {
   color: var(--ink);
   margin-bottom: 4px;
   text-transform: uppercase;
+  font-weight: 100;
 }
 
 .chip span {
