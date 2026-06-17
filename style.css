@@ -951,3 +951,13 @@ footer ul li a:hover {
     transform: none;
   }
 }
+
+
+
+#historia, 
+#planos, 
+#depoimentos, 
+#horarios, 
+#faq {
+  scroll-margin-top: 50px;
+}
