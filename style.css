@@ -918,17 +918,17 @@ footer ul li a:hover {
   .nav-menu {
     position: fixed;
     top: 100px;
-    left: -100%;
+    right: -100%;
     width: 100%;
     height: calc(100vh - 100px);
     background: var(--sea-deep);
     flex-direction: column;
     padding: 40px 0;
-    transition: 0.4s ease;
+    transition: 0.6s ease;
   }
 
   .nav-menu.active {
-    left: 0;
+    right: 0;
   }
 
   .menu-toggle {
