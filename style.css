@@ -231,7 +231,7 @@ header {
 
 header.scrolled {
   background: var(--sea-deep);
-  padding: 6px 0;
+  padding: 5px 0;
 }
 
 .nav-container {
@@ -468,11 +468,14 @@ header.scrolled {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.price-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow);
-}
 
+
+.price-card:active {
+  transform: scale(0.98); /* O card dá uma leve "afundada", simulando um botão real */
+  border-color: var(--sun); /* A borda acende no amarelo Mikasa ao tocar */
+  box-shadow: 0 5px 15px rgba(244, 196, 48, 0.3); /* Sombra mais intensa de clique */
+  transition: transform 0.1s ease; /* Transição super rápida para dar sensação de clique instantâneo */
+}
 .price-card.featured {
   border: 2px solid var(--sun);
   box-shadow: var(--shadow);
