@@ -154,7 +154,7 @@ h3 {
 .reveal {
   opacity: 0;
   transform: translateY(100px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.is-visible {
@@ -469,12 +469,6 @@ header.scrolled {
   cursor: pointer;
 }
 
-.price-card:active {
-  transform: scale(0.98); 
-  border-color: var(--sun);
-  box-shadow: 0 5px 15px rgba(244, 196, 48, 0.3); 
-  transition: transform 0.1s ease; 
-}
 .price-card.featured {
   border: 2px solid var(--sun);
   box-shadow: var(--shadow);
@@ -704,11 +698,11 @@ header.scrolled {
 }
 
 .map-link {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.82rem;
   color: var(--sun-dark);
   display: inline-flex;
-  gap: 6px;
+  gap: 10px;
   align-items: center;
   margin-top: 6px;
 }
