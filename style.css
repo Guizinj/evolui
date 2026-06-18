@@ -466,15 +466,14 @@ header.scrolled {
   justify-content: space-between;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-
-
 .price-card:active {
-  transform: scale(0.98); /* O card dá uma leve "afundada", simulando um botão real */
-  border-color: var(--sun); /* A borda acende no amarelo Mikasa ao tocar */
-  box-shadow: 0 5px 15px rgba(244, 196, 48, 0.3); /* Sombra mais intensa de clique */
-  transition: transform 0.1s ease; /* Transição super rápida para dar sensação de clique instantâneo */
+  transform: scale(0.98); 
+  border-color: var(--sun);
+  box-shadow: 0 5px 15px rgba(244, 196, 48, 0.3); 
+  transition: transform 0.1s ease; 
 }
 .price-card.featured {
   border: 2px solid var(--sun);
