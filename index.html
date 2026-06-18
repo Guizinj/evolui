@@ -275,7 +275,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.10 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));

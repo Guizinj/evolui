@@ -153,7 +153,7 @@ h3 {
 /* Animações de Reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateY(50px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
