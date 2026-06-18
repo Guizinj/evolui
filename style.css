@@ -328,6 +328,14 @@ header.scrolled {
   letter-spacing: 0.08em;
   margin-bottom: 24px;
 }
+.end {
+  display: flex;
+  justify-content: center;
+}
+.hero-tag-end{
+ text-transform: uppercase;
+ letter-spacing: 8px;
+}
 
 .hero h1 {
   font-size: 3.6rem;
