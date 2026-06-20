@@ -76,7 +76,6 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0px 25px;
 }
 a {
   color: inherit;
@@ -197,6 +196,9 @@ h3 {
   color: var(--on-dark);
   border: 2px solid rgba(246, 241, 228, 0.5);
   box-shadow: none;
+  text-align: center;
+  padding: 9px 22px; 
+  font-size: 0.82rem;
 }
 
 .btn-outline:hover {
@@ -238,7 +240,7 @@ header.scrolled {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 40px;
 }
 
 .logo {
@@ -428,11 +430,17 @@ header.scrolled {
   font-size: 0.86rem;
   color: var(--ink-faint);
 }
+.div-img-turma{
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
 
-.about-visual {
-  display: flex;
-  justify-content: center;
-  position: relative;
+}
+.turma{
+width: 100%;
+ height: auto;
+ object-fit: contain;
+ border-radius: 20px;
 }
 
 .ball-glow {
@@ -881,7 +889,7 @@ footer ul li a:hover {
    13. MEDIA QUERIES (RESPONSIVIDADE)
    ========================================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .hero h1 {
     font-size: 2.8rem;
   }

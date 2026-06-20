@@ -5,39 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Evolui FTV - aulas de futevôlei para iniciantes. Metodologia do zero, turmas reduzidas e primeira aula gratuita.">
 <title>Evolui FTV - Do Zero ao Topo no Futevôlei</title>
+
+<!-- Conexão antecipada com o Google Fonts: o navegador já abre a conexão
+     enquanto o resto da página carrega, economizando tempo na hora de
+     baixar as fontes de verdade na linha de baixo. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome: biblioteca de ícones (usada nos botões, FAQ, WhatsApp flutuante etc) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="style.css">
+
+<!-- Ícone que aparece na aba do navegador (favicon).
+     TODO: renomear o arquivo para algo como "logo.png" -
+     fica mais fácil de manter do que um nome gerado pela câmera. -->
 <link rel="shortcut icon" href="IMG_5292.PNG" type="image/x-icon">
 
 </head>
 <body>
 
+<!-- ============================================================
+     HEADER / NAVEGAÇÃO
+     Fixo no topo (ver "position: fixed" no CSS). Fica transparente
+     no início e ganha fundo sólido depois que o usuário rola a página
+     (classe .scrolled, controlada pelo JS lá no final do arquivo).
+     ============================================================ -->
 <header id="header">
   <div class="container nav-container">
     <div class="cabeca">
-        <a href="#"><img class="img-logo" src="IMG_5292.PNG" alt=""></a>
+        <!-- alt descritivo: importante pra acessibilidade (leitores de tela)
+             e pra SEO, já que é a única ocorrência da marca no cabeçalho -->
+        <a href="#"><img class="img-logo" src="logo.png" alt="Logo Evolui FTV"></a>
         <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
           <i class="fas fa-bars" style="font-size: 30px;"></i>
         </button>
     </div>
+    <!-- Cada link aponta para o "id" de uma section mais abaixo (#planos,
+         #horarios...). É assim que a rolagem suave funciona: o CSS tem
+         "html { scroll-behavior: smooth }" e o navegador faz o resto. -->
     <ul class="nav-menu" id="nav-menu">
       <li><a href="#" class="nav-link">Início</a></li>
       <li><a href="#historia" class="nav-link">História</a></li>
       <li><a href="#planos" class="nav-link">Planos</a></li>
       <li><a href="#horarios" class="nav-link">Horários</a></li>
       <li><a href="#faq" class="nav-link">FAQ</a></li>
-      <li><a href="https://wa.me/5587988564073?text=Quero%20saber%20mais%20sobre%20o%20Evolui%20FTV" target="_blank" class="btn btn-outline" style="padding:9px 22px; font-size:0.82rem;">Fale Conosco</a></li>
+      <!-- Link de WhatsApp com mensagem pré-preenchida via "?text=" (URL-encoded).
+           Esse padrão "wa.me/55<DDD><número>?text=..." se repete em todos os
+           CTAs do site e é uma ótima prática: o lead já chega no chat
+           dizendo o que quer, sem precisar digitar nada. -->
+      <li><a href="https://wa.me/5587988564073?text=Quero%20saber%20mais%20sobre%20o%20Evolui%20FTV" target="_blank" class="btn btn-outline">Contato</a></li>
     </ul>
   </div>
 </header>
+
+<!-- ============================================================
+     HERO
+     Primeira coisa que o visitante vê. Tem que responder rápido:
+     "o que é isso, pra quem é, e o que eu faço agora?"
+     ============================================================ -->
 <section class="hero">
   <div class="container hero-content">
     <span class="hero-tag"> Seu aprendizado começa aqui</span>
     <h1>faça parte da <span>evolui</span>, venha conhecer o esporte que mais <span>cresce</span></h1>
     <p>Aqui na Evolui FTV, temos uma Metodologia 100% focada em quem está começando — sem pressão, só evolução.</p>
+    <!-- Dois CTAs com pesos diferentes: o primeiro (.btn cheio) é a ação
+         principal; o segundo (.btn-outline) é uma alternativa mais "leve"
+         pra quem ainda não está pronto pra falar no WhatsApp. -->
     <div class="hero-btns">
       <a href="#planos" class="btn">Garantir Minha Vaga</a>
       <a href="#historia" class="btn btn-outline">Conhecer o Projeto</a>
@@ -47,9 +81,17 @@
   </div>
 </section>
 
+<!-- ============================================================
+     SOBRE / HISTÓRIA
+     Seção de confiança: explica o "porquê" do negócio existir.
+     .about-grid é "1fr 1fr" no CSS — duas colunas iguais — por isso
+     precisa de dois filhos diretos (texto + visual) pra não sobrar
+     espaço vazio do lado direito em telas largas.
+     ============================================================ -->
 <section class="section" id="historia">
   <div class="container">
     <div class="about-grid">
+      <div class="div-img-turma"><img class="turma" src="turma.jpg.JPG" alt=""></div>
       <div class="about-text reveal">
         <span class="eyebrow">Quem somos</span>
         <h2 style="font-size:2rem; margin-bottom:26px;">A nossa <span style="color:var(--sun)">história</span></h2>
@@ -61,10 +103,22 @@
           <div class="chip"><strong>Técnica</strong><span>Aprenda a ficar um passo a frente do seu adversário.</span></div>
         </div>
       </div>
+      <!-- Segunda coluna do grid: antes estava ausente e deixava um vão
+           vazio ao lado do texto em telas de desktop. As classes
+           .about-visual e .ball-glow já existiam no CSS, só não eram
+           usadas em lugar nenhum — reaproveitadas aqui. -->
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     PLANOS / PREÇOS
+     3 cards lado a lado (grid de 3 colunas no CSS, vira 1 coluna no
+     mobile). O card do meio tem a classe extra ".featured" — é o que
+     o CSS usa pra destacar com borda e o selo "Mais Procurado".
+     O <s> (strikethrough) mostra um preço "de" riscado antes do "por",
+     reforçando a sensação de desconto/promoção.
+     ============================================================ -->
 <section class="section section--deep" id="planos">
   <div class="container">
     <div class="section-eyebrow-wrap reveal"><span class="eyebrow">Investimento</span></div>
@@ -75,6 +129,9 @@
           <div class="plan-name">START</div>
           <s>R$ 50,00</s>
           <div class="plan-price"><span class="currency">R$</span><span class="amount">40</span><span class="period">/mês</span></div>
+          <!-- itens "off" (classe .off) representam o que NÃO está incluso
+               nesse plano — ajuda a vender visualmente o upgrade pro
+               plano do meio, que tem tudo "ligado". -->
           <ul class="plan-features">
             <li><i class="fas fa-check-circle"></i> Um treino por semana</li>
             <li><i class="fas fa-check-circle"></i> Fundamentos básicos guiados</li>
@@ -86,6 +143,8 @@
         <a href="https://wa.me/5587988564073?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20START.%20Como%20fa%C3%A7o%20minha%20inscri%C3%A7%C3%A3o%3F" target="_blank" class="btn btn-outline dark">Começar Agora</a>
       </div>
 
+      <!-- Card "featured": o badge usa position:absolute pra flutuar
+           sobre a borda superior do card (ver .badge no CSS). -->
       <div class="price-card featured reveal">
         <div class="badge">Mais Procurado</div>
         <div class="reveal">
@@ -120,6 +179,12 @@
   </div>
 </section>
 
+<!-- ============================================================
+     DEPOIMENTOS
+     Prova social. Os avatares (.testi-avatar) são só a primeira
+     letra do nome dentro de um círculo — uma alternativa leve e sem
+     custo a fotos reais de alunos.
+     ============================================================ -->
 <section class="section" id="depoimentos">
   <div class="container">
     <div class="section-eyebrow-wrap reveal"><span class="eyebrow">Depoimentos</span></div>
@@ -127,7 +192,7 @@
     <div class="testi-grid">
       <div class="testi-card reveal">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"Eu nunca tinha tocado numa bola de futvôlei na vida. Na primeira aula já percebi uma boa evolução"</p>
+        <p class="testi-quote">"Eu nunca tinha tocado numa bola de futevôlei na vida. Na primeira aula já percebi uma boa evolução"</p>
         <div class="testi-who"><div class="testi-avatar">P</div><div><div class="testi-name">Pedro</div><div class="testi-role">última semana</div></div></div>
       </div>
       <div class="testi-card reveal">
@@ -137,13 +202,18 @@
       </div>
       <div class="testi-card reveal">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">A atenção do professor faz toda diferença — ele corrige seu movimento na hora, não fica só na teoria"</p>
+        <p class="testi-quote">"A atenção do professor faz toda diferença — ele corrige seu movimento na hora, não fica só na teoria"</p>
         <div class="testi-who"><div class="testi-avatar">R</div><div><div class="testi-name">Raissa</div><div class="testi-role">esta semana</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     HORÁRIOS / LOGÍSTICA
+     Informação prática (quando, com quem falar, onde fica).
+     3 caixas iguais (.info-box) num grid de 3 colunas.
+     ============================================================ -->
 <section class="section section--deep" id="horarios">
   <div class="container">
     <div class="section-eyebrow-wrap reveal"><span class="eyebrow">Logística</span></div>
@@ -172,6 +242,14 @@
   </div>
 </section>
 
+<!-- ============================================================
+     FAQ
+     Usa o elemento nativo <details>/<summary> em vez de JavaScript
+     pra abrir/fechar — funciona sozinho, é acessível por teclado e
+     ainda lê bem em leitores de tela, sem precisar de nenhuma linha
+     extra de script. O ícone "+" gira 45° (vira um "x") quando o
+     <details> está aberto, graças ao seletor .faq-item[open] no CSS.
+     ============================================================ -->
 <section class="section" id="faq">
   <div class="container">
     <div class="section-eyebrow-wrap reveal"><span class="eyebrow">Dúvidas comuns</span></div>
@@ -201,6 +279,12 @@
   </div>
 </section>
 
+<!-- ============================================================
+     CTA FINAL
+     Última chance de conversão antes do rodapé — por isso é
+     visualmente mais "pesada" (fundo escuro + brilho radial atrás
+     do título, ver .cta::before no CSS).
+     ============================================================ -->
 <section class="cta">
   <div class="container cta-content">
     <h2>A sua primeira aula é por nossa conta</h2>
@@ -209,6 +293,11 @@
   </div>
 </section>
 
+<!-- ============================================================
+     RODAPÉ
+     Grid de 3 colunas (marca / navegação / contato) + uma linha
+     final de copyright e crédito do desenvolvedor.
+     ============================================================ -->
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -241,16 +330,23 @@
   </div>
 </footer>
 
+<!-- Botão flutuante de WhatsApp: fica fixo no canto inferior direito
+     em todas as páginas (ver .whatsapp-float, position:fixed no CSS),
+     sempre visível mesmo depois de rolar a página. -->
 <a href="https://wa.me/5587988564073?text=Ol%C3%A1!%20Estou%20no%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20as%20aulas." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
+  // 1) Header muda de aparência ao rolar a página: some a transparência
+  //    e fica com fundo sólido depois de 500px de scroll (ver .scrolled no CSS).
   window.addEventListener('scroll', () => {
     const header = document.getElementById('header');
     header.classList.toggle('scrolled', window.scrollY > 500);
   });
 
+  // 2) Menu mobile (hamburguer): alterna a classe "active" no <ul> do menu
+  //    e troca o ícone de "barras" para "x" conforme o estado.
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const navMenu = document.getElementById('nav-menu');
   mobileMenuBtn.addEventListener('click', function(){
@@ -260,6 +356,8 @@
     icon.classList.toggle('fa-bars', !open);
     icon.classList.toggle('fa-times', open);
   });
+  // Fecha o menu mobile automaticamente assim que o usuário clica em
+  // qualquer link de navegação (evita ele continuar aberto por cima do conteúdo).
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('active');
@@ -270,16 +368,24 @@
     });
   });
 
+  // 3) Animação de "revelar ao rolar": todo elemento com a classe .reveal
+  //    começa invisível (opacity:0, ver CSS) e ganha .is-visible assim
+  //    que entra na tela, disparando a transição suave definida no CSS.
+  //    IntersectionObserver é mais performático que escutar o evento de
+  //    scroll manualmente, porque o navegador só avisa quando um elemento
+  //    realmente cruza a "viewport" — sem cálculo constante a cada pixel rolado.
+  //    Respeita também quem ativou "reduzir movimento" no sistema operacional:
+  //    nesse caso, todo conteúdo já aparece visível de cara, sem animação.
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion && 'IntersectionObserver' in window){
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting){
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // já revelou, não precisa observar de novo
         }
       });
-    }, { threshold: 0.05 });
+    }, { threshold: 0.05 }); // dispara quando 5% do elemento já está visível
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
